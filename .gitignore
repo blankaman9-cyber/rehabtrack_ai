@@ -1,0 +1,126 @@
+
+# PYTHON / FLASK
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# Flask instance folder
+instance/
+flask_session/
+
+# Environment variables
+.env
+.env.local
+.env.production
+.flaskenv
+
+# DATABASE
+
+*.db
+*.sqlite
+*.sqlite3
+database.db
+
+# ML MODEL FILES (too large for GitHub)
+
+*.h5
+*.pkl
+*.pickle
+*.pt
+*.pth
+*.ckpt
+*.joblib
+*.model
+saved_models/
+checkpoints/
+weights/
+
+# MediaPipe cache
+.mediapipe/
+
+
+# REACT / NODE
+
+node_modules/
+build/
+dist/
+.cache/
+.parcel-cache/
+
+# React env files
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# npm / yarn logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# DATA & DATASETS
+
+data/
+datasets/
+*.csv
+*.json.bak
+*.npy
+*.npz
+
+# LOGS
+
+*.log
+logs/
+log/
+
+# OS FILES
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Thumbs.db:encdata
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# IDE / EDITOR
+
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+.spyderproject.cfg
+.ropeproject
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# MISC
+
+*.zip
+*.tar.gz
+*.rar
+temp/
+tmp/
