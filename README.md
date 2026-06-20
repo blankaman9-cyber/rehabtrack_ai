@@ -2,6 +2,13 @@
 
 > An AI-powered telerehabilitation monitoring system that enables remote physical therapy through real-time pose analysis and progress tracking.
 
+![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=flat&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-Backend-000000?style=flat&logo=flask)
+![React](https://img.shields.io/badge/React-Frontend-61DAFB?style=flat&logo=react)
+![MediaPipe](https://img.shields.io/badge/MediaPipe-BlazePose-FF6F00?style=flat)
+![BiLSTM](https://img.shields.io/badge/Model-BiLSTM-purple?style=flat)
+![SQLite](https://img.shields.io/badge/Database-SQLite-003B57?style=flat&logo=sqlite)
+
 ---
 
 ## 📌 Overview
@@ -108,7 +115,7 @@ RehabTrack-AI/
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/RehabTrack-AI.git
+git clone https://github.com/blankaman9-cyber/RehabTrack-AI.git
 cd RehabTrack-AI/backend
 
 # Create virtual environment
@@ -171,7 +178,21 @@ Frontend runs at `http://localhost:3000`
 
 ## 📸 Screenshots
 
-> *(Add screenshots of the Doctor Dashboard, Patient Dashboard, and live pose tracking here)*
+### 🏠 Landing Page — Portal Selection
+![Landing Page](screenshots/landing.png)
+> Elegant dark-themed entry point with role-based portal selection (Patient / Doctor)
+
+---
+
+### 🧑‍🦽 Patient Portal — Live Session
+![Patient Portal](screenshots/patient-portal.png)
+> Real-time webcam feed with live accuracy scoring, rep counting, class probabilities (Squat, Arm Cross, Body Twist, Step Jack), prescribed exercise display, and live ROM waveform
+
+---
+
+### 👨‍⚕️ Doctor Portal — Analytics Dashboard
+![Doctor Portal](screenshots/doctor-portal.png)
+> Full patient analytics view with total sessions, average accuracy (85.1%), peak ROM (176°), ROM trend graph, accuracy progress chart, and detailed session history log
 
 ---
 
