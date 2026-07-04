@@ -497,7 +497,9 @@ def render_patient_tab():
 
         # ── Live tracking loop ─────────────────────────────────────────────
         if st.session_state.tracking_active and st.session_state.pose_processor:
-            engine    = load_scoring_engine(checkpoint_path="checkpoint_best.pt")
+            checkpoint_file = "checkpoint_best.pt"
+            path_to_load = checkpoint_file if os.path.exists(checkpoint_file) else None
+            engine    = load_scoring_engine(checkpoint_path=path_to_load)
             processor = st.session_state.pose_processor
             cap = cv2.VideoCapture(0)
 

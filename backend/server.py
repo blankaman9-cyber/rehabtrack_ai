@@ -13,27 +13,36 @@ app = Flask(__name__)
 
 # Load PyTorch LSTM model
 print("[Backend] Loading PyTorch LSTM Scoring Engine...")
-engine = build_scoring_engine(checkpoint_path="checkpoint_best.pt")
-print("[Backend] Model loaded successfully.")
+checkpoint_file = "checkpoint_best.pt"
+if os.path.exists(checkpoint_file):
+    engine = build_scoring_engine(checkpoint_path=checkpoint_file)
+    print(f"[Backend] Model loaded successfully from {checkpoint_file}.")
+else:
+    engine = build_scoring_engine(checkpoint_path=None)
+    print("[Backend] Checkpoint not found. Loaded mock LSTM weights for demo mode.")
+
+# Resolve the absolute path to the frontend/web directory
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+WEB_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "frontend", "web"))
 
 # ── Serve Frontend ───────────────────────────────────────────────────────────
 
 @app.route("/")
 def serve_index():
-    return send_from_directory("web", "index.html")
+    return send_from_directory(WEB_DIR, "index.html")
 
 @app.route("/pose_landmarker.task")
 def serve_pose_model():
-    # Serve pose model from base directory
-    return send_from_directory(".", "pose_landmarker.task")
+    # Serve pose model from backend directory
+    return send_from_directory(BASE_DIR, "pose_landmarker.task")
 
 @app.route("/<path:path>")
 def serve_static(path):
     # Serve static assets or JS component modules from the web folder
-    if os.path.exists(os.path.join("web", path)):
-        return send_from_directory("web", path)
+    if os.path.exists(os.path.join(WEB_DIR, path)):
+        return send_from_directory(WEB_DIR, path)
     # Default fallback to index.html for React SPA routing
-    return send_from_directory("web", "index.html")
+    return send_from_directory(WEB_DIR, "index.html")
 
 # ── Authentication API ───────────────────────────────────────────────────────
 
