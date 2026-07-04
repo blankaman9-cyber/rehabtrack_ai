@@ -156,6 +156,15 @@ class PoseProcessor:
         self._buffer: deque = deque(maxlen=window_size)
         self._last_timestamp_ms = 0  # ensure monotonically increasing timestamps
 
+        # Auto-download model file if not present
+        if not os.path.exists(model_path):
+            import urllib.request
+            print(f"[PoseProcessor] model_path {model_path} not found. Downloading from official MediaPipe CDN...")
+            url = "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_full/float16/1/pose_landmarker_full.task"
+            os.makedirs(os.path.dirname(model_path), exist_ok=True)
+            urllib.request.urlretrieve(url, model_path)
+            print("[PoseProcessor] Download complete!")
+
         # MediaPipe Tasks API initialisation
         base_options = mp_python.BaseOptions(model_asset_path=model_path)
         options = vision.PoseLandmarkerOptions(
