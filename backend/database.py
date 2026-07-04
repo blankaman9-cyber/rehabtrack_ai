@@ -13,7 +13,12 @@ import os
 from datetime import datetime
 from typing import List, Dict, Optional, Tuple
 
-DB_PATH = "rehab_system.db"
+DB_PATH = os.environ.get("REHAB_DB_PATH", "rehab_system.db")
+
+# Ensure parent directory of DB_PATH exists if a directory path is provided
+db_dir = os.path.dirname(DB_PATH)
+if db_dir:
+    os.makedirs(db_dir, exist_ok=True)
 
 
 def get_connection() -> sqlite3.Connection:

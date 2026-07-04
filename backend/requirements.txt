@@ -1,0 +1,9 @@
+flask
+numpy
+mediapipe
+torch --index-url https://download.pytorch.org/whl/cpu
+streamlit
+opencv-python-headless
+pandas
+scikit-learn
+gunicorn
